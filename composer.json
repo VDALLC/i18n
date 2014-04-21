@@ -1,0 +1,22 @@
+{
+    "name": "vda/i18n",
+    "type": "library",
+    "description": "Internationalization related classes",
+    "keywords": ["i18n", "t9n", "translation"],
+    "require": {
+        "php": ">=5.3.23"
+    },
+   "suggest": {
+        "vda/datasource": "Datasource based implementations (self.version)"
+    },
+    "autoload": {
+        "psr-0": { "": "" }
+    },
+    "target-dir": "Vda/I18n",
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-trunk": "1-dev"
+        }
+    }
+}
