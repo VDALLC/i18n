@@ -84,7 +84,7 @@ class TranslationService implements ITranslationService
                 ->join($f->translationTable(), $f->keyTable()->_fkTranslation)
                 ->filter($f)
                 ->groupBy($f->key())
-                ->map('\Vda\I18n\TranslationId')
+                ->map('\Vda\I18n\TranslationKey')
         );
     }
 
