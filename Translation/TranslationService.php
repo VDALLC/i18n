@@ -79,12 +79,12 @@ class TranslationService implements ITranslationService
     public function findKeys(TranslationFilter $f)
     {
         return $this->repository->select(
-            Select::select($f->keyTable()->key)
+            Select::select($f->keyTable()->key, $f->keyTable()->sectionId)
                 ->from($f->keyTable())
                 ->join($f->translationTable(), $f->keyTable()->_fkTranslation)
                 ->filter($f)
                 ->groupBy($f->key())
-                ->singleColumn()
+                ->map('\Vda\I18n\TranslationId')
         );
     }
 
