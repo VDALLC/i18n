@@ -9,6 +9,7 @@ interface IAuditor
     const KEY_MISS        = 1;
     const KEY_INVALID     = 2;
     const PLURALIZER_MISS = 3;
+    const KEYWORD_MISS    = 4;
 
     public function log(TranslationId $id, $event);
 }
