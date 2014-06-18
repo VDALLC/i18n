@@ -78,14 +78,19 @@ class TranslationService implements ITranslationService
 
     public function findKeys(TranslationFilter $f)
     {
-        return $this->repository->select(
-            Select::select($f->keyTable()->key, $f->keyTable()->sectionId)
+        $keys = $this->repository->select(
+            Select::select($f->keyTable()->key, $f->keyTable()->sectionId, $f->keyTable()->meta)
                 ->from($f->keyTable())
                 ->join($f->translationTable(), $f->keyTable()->_fkTranslation)
                 ->filter($f)
                 ->groupBy($f->key())
                 ->map('\Vda\I18n\TranslationKey')
         );
+
+        return array_map(function($key){
+            $key->meta = json_decode($key->meta, true);
+            return $key;
+        }, $keys);
     }
 
     public function getKeyMeta($key, $sectionId)
