@@ -31,6 +31,9 @@ interface ITranslationService
 
     public function deleteTranslation(TranslationId $id);
 
+    /**
+     * @return \Vda\I18n\TranslationKey[]
+     * */
     public function findKeys(TranslationFilter $filter);
 
     public function getKeyMeta($key, $sectionId);
