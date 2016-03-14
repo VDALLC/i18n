@@ -43,7 +43,7 @@ class TranslationServiceStorage implements ITranslationStorage
 
     public function batchDelete(array $translationIds)
     {
-        foreach ($translations as $t) {
+        foreach ($translationIds as $id) {
             $this->ts->deleteTranslation($id);
         }
     }

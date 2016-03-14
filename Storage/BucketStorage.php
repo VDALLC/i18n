@@ -71,8 +71,8 @@ class BucketStorage implements ITranslationStorage
     public function batchDelete(array $translationIds)
     {
         $buckets = array();
-        foreach ($translations as $t) {
-            $buckets[$this->getBucketId($t)][$t->key] = true;
+        foreach ($translationIds as $id) {
+            $buckets[$this->getBucketId($id)][$id->key] = true;
         }
 
         foreach ($buckets as $bucketId => $update) {
